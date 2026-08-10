@@ -99,15 +99,15 @@ Candidate hub genes were identified using the following criteria:
 - **Gene Significance (GS) ≥ 0.80**
 
 Two modules were selected for further investigation:
-
 | Module | Total Genes | Hub Genes After Filtering |
 |--------|------------:|---------------------------:|
-| ME24 (darkgrey) | 407 | 41 |
+| ME24 (darkgrey) | 407 | 11 |
 | ME59 (darkseagreen4) | 190 | 20 |
+| **Total** | **597** | **31** |
 
 The ME59 filtered result contained **20 genes** satisfying the specified MM and GS criteria.
 
-The final combined number of hub genes will be confirmed after verification of the ME24 filtered result.
+A total of **31 candidate hub genes** were identified across the ME24 and ME59 modules after applying the filtering criteria of |MM| ≥ 0.90 and GS ≥ 0.80.
 
 ## PPI Network Results
 
