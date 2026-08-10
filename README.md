@@ -109,21 +109,37 @@ The ME59 filtered result contained **20 genes** satisfying the specified MM and 
 
 The final combined number of hub genes will be confirmed after verification of the ME24 filtered result.
 
-## PPI Network Analysis
+## PPI Network Results
 
-Protein-protein interaction (PPI) analysis was performed using STRING to investigate potential interactions among the identified candidate hub genes.
+Protein-protein interaction (PPI) analysis was performed using STRING to investigate potential interactions among the candidate hub genes.
 
-The PPI analysis was used to evaluate:
+### ME24 PPI Network
 
-- Number of nodes
-- Number of edges
-- Average node degree
-- Local clustering coefficient
-- PPI enrichment
+The ME24 network contained:
 
-The resulting PPI networks will be used to investigate potential functional relationships among the candidate hub proteins.
+- **Nodes:** 8
+- **Edges:** 1
+- **Average node degree:** 0.25
+- **Average local clustering coefficient:** 0.25
+- **Expected number of edges:** 0
+- **PPI enrichment p-value:** 0.183
 
-Detailed PPI network results will be added after the final STRING analysis.
+The ME24 network showed a small number of interactions and was **not significantly enriched for protein-protein interactions** (PPI enrichment p = 0.183).
+
+### ME59 PPI Network
+
+The ME59 network contained:
+
+- **Nodes:** 3
+- **Edges:** 0
+- **Average node degree:** 0
+- **PPI enrichment p-value:** 1.0
+
+No protein-protein interactions were detected among the proteins included in the ME59 STRING network. The network therefore showed **no significant PPI enrichment**.
+
+### Overall PPI Interpretation
+
+The STRING analysis showed limited protein-protein interactions among the investigated candidate hub proteins. The ME24 network contained one observed interaction, whereas the ME59 network contained no observed interactions. Therefore, the candidate hub genes did not form strongly interconnected PPI networks under the STRING analysis conditions used.
 
 ## Tools and Software
 
