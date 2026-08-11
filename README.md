@@ -70,7 +70,7 @@ STRING / PPI Analysis
 
 ---
 
-## 📊 Key Results
+##  Key Results
 
 | Analysis                  | Main Result |
 | ------------------------- | ----------: |
@@ -88,7 +88,7 @@ STRING / PPI Analysis
 
 ---
 
-## 🧬 Differential Expression Analysis
+##  Differential Expression Analysis
 
 DESeq2 was used to identify differentially expressed genes between albumin-treated and untreated airway samples.
 
@@ -131,7 +131,7 @@ Important pathways included:
 
 ---
 
-## 🧠 WGCNA Analysis
+##  WGCNA Analysis
 
 Weighted Gene Co-expression Network Analysis (WGCNA) was performed using **26,821 genes** from 8 samples.
 
@@ -165,7 +165,7 @@ Hub genes were selected using:
 
 ---
 
-## 🕸️ Protein-Protein Interaction Analysis
+##  Protein-Protein Interaction Analysis
 
 STRING was used to investigate potential interactions among the candidate hub proteins.
 
