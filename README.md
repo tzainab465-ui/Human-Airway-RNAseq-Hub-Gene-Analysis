@@ -115,31 +115,38 @@ Protein-protein interaction (PPI) analysis was performed using STRING to investi
 
 ### ME24 PPI Network
 
+A total of **11 ME24 hub genes** were submitted to STRING, of which **8 proteins were successfully recognized**.
+
 The ME24 network contained:
 
-- **Nodes:** 8
-- **Edges:** 1
-- **Average node degree:** 0.25
-- **Average local clustering coefficient:** 0.25
-- **Expected number of edges:** 0
-- **PPI enrichment p-value:** 0.183
+* **Recognized nodes:** 8
+* **Edges:** 1
+* **Average node degree:** 0.25
+* **Average local clustering coefficient:** 0.25
+* **Expected number of edges:** 0
+* **PPI enrichment p-value:** 0.183
 
 The ME24 network showed a small number of interactions and was **not significantly enriched for protein-protein interactions** (PPI enrichment p = 0.183).
 
 ### ME59 PPI Network
 
+A total of **20 ME59 hub genes** were submitted to STRING, but only **3 proteins were successfully recognized**.
+
 The ME59 network contained:
 
-- **Nodes:** 3
-- **Edges:** 0
-- **Average node degree:** 0
-- **PPI enrichment p-value:** 1.0
+* **Recognized nodes:** 3
+* **Edges:** 0
+* **Average node degree:** 0
+* **PPI enrichment p-value:** 1.0
 
-No protein-protein interactions were detected among the proteins included in the ME59 STRING network. The network therefore showed **no significant PPI enrichment**.
+No protein-protein interactions were detected among the **3 proteins recognized by STRING**. Therefore, the absence of interactions should not be interpreted as evidence that all 20 ME59 hub genes lack protein-protein interactions.
 
 ### Overall PPI Interpretation
 
-The STRING analysis showed limited protein-protein interactions among the investigated candidate hub proteins. The ME24 network contained one observed interaction, whereas the ME59 network contained no observed interactions. Therefore, the candidate hub genes did not form strongly interconnected PPI networks under the STRING analysis conditions used.
+The STRING analysis showed limited protein-protein interactions among the **STRING-recognized hub proteins**. The ME24 network contained one observed interaction, whereas the three recognized ME59 proteins showed no interactions. Neither network showed significant PPI enrichment.
+
+Because several hub gene identifiers were not recognized by STRING, the PPI results represent only the subset of candidate hub genes that could be mapped to proteins in STRING.
+
 
 ## Tools and Software
 
