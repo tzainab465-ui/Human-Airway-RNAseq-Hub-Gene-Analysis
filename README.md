@@ -268,7 +268,7 @@ Human-Airway-RNAseq-Hub-Gene-Analysis/
 
 ---
 
-## 👩‍🔬 Author
+##  Author
 
 **Zainab Tahir**
 BS Bioinformatics
@@ -276,7 +276,7 @@ Government College University Faisalabad (GCUF)
 
 ---
 
-## 📚 Project Status
+##  Project Status
 
 **Analysis completed:** RNA-seq → DESeq2 → Enrichment → WGCNA → Hub Gene Identification → STRING/PPI
 
