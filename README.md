@@ -1,190 +1,283 @@
-# Human Airway RNA-seq Analysis and Hub Gene Identification
+#  Human Airway RNA-seq Analysis and Hub Gene Identification
 
-**Author:** Zainab Tahir  
-**Program:** BS Bioinformatics  
+**A bioinformatics analysis of human airway RNA-seq data to identify differentially expressed genes, co-expression modules, candidate hub genes, and protein-protein interaction networks associated with albumin treatment.**
+
+**Author:** Zainab Tahir
+**Program:** BS Bioinformatics
 **Institution:** Government College University Faisalabad (GCUF)
 
-## Project Overview
+---
 
-This project presents a bioinformatics workflow for analyzing human airway RNA-seq data and identifying candidate hub genes associated with albumin treatment.
+##  Project Overview
 
-The analysis includes RNA-seq quality control, read trimming, alignment, gene quantification, differential expression analysis, functional enrichment, weighted gene co-expression network analysis (WGCNA), hub gene identification, and protein-protein interaction (PPI) analysis.
+This project investigates gene expression patterns in human airway samples following albumin treatment using a complete RNA-seq bioinformatics workflow.
 
-## Workflow
+The analysis integrates:
 
-Raw RNA-seq Data  
-↓  
-SRA Toolkit  
-↓  
-FASTQ Files  
-↓  
-FastQC / fastp  
-↓  
-Quality Control & Trimming  
-↓  
-HISAT2 Alignment  
-↓  
-featureCounts  
-↓  
-Gene Count Matrix  
-↓  
-DESeq2  
-↓  
-Differentially Expressed Genes  
-↓  
-GO / KEGG Enrichment  
-↓  
-VST Transformation  
-↓  
-WGCNA  
-↓  
-Module-Trait Analysis  
-↓  
-Hub Gene Identification  
-↓  
+**RNA-seq → Quality Control → Trimming → Alignment → Quantification → DESeq2 → GO/KEGG → WGCNA → Hub Genes → STRING/PPI**
+
+The objective was to identify genes and biological pathways potentially associated with the response to albumin treatment.
+
+---
+
+## 🧪 Dataset
+
+| Feature          | Information                  |
+| ---------------- | ---------------------------- |
+| Organism         | *Homo sapiens*               |
+| Reference genome | GRCh38                       |
+| Samples          | 8                            |
+| Comparison       | Albumin-treated vs untreated |
+| Analysis type    | RNA-seq                      |
+| Network analysis | WGCNA                        |
+| PPI database     | STRING                       |
+
+---
+
+## 🔬 Analysis Workflow
+
+```text
+Raw RNA-seq Data
+       ↓
+SRA Toolkit
+       ↓
+FASTQ
+       ↓
+FastQC / fastp
+       ↓
+Quality Control & Trimming
+       ↓
+HISAT2 Alignment
+       ↓
+featureCounts
+       ↓
+Gene Count Matrix
+       ↓
+DESeq2
+       ↓
+GO / KEGG Enrichment
+       ↓
+VST Transformation
+       ↓
+WGCNA
+       ↓
+Module-Trait Analysis
+       ↓
+Hub Gene Identification
+       ↓
 STRING / PPI Analysis
+```
 
-## Dataset
+---
 
-- **Organism:** Homo sapiens
-- **Reference genome:** GRCh38
-- **Number of samples:** 8
-- **Experimental comparison:** Albumin-treated vs untreated airway samples
+## 📊 Key Results
 
-## Differential Expression Analysis
+| Analysis                  | Main Result |
+| ------------------------- | ----------: |
+| Genes analyzed by DESeq2  |      78,899 |
+| Significant DEGs          |           2 |
+| Genes used for WGCNA      |      26,821 |
+| WGCNA soft threshold      |      β = 11 |
+| ME24 hub genes            |          11 |
+| ME59 hub genes            |          20 |
+| Total candidate hub genes |          31 |
+| ME24 STRING nodes         |           8 |
+| ME24 STRING edges         |           1 |
+| ME59 STRING nodes         |           3 |
+| ME59 STRING edges         |           0 |
 
-DESeq2 was used to identify differentially expressed genes.
+---
 
-Significant DEGs were selected using:
+## 🧬 Differential Expression Analysis
 
-- Adjusted p-value < 0.05
-- |log2 Fold Change| > 1
+DESeq2 was used to identify differentially expressed genes between albumin-treated and untreated airway samples.
 
-After filtering, **2 significant DEGs** were identified.
+Significant DEGs were defined using:
 
-The significant genes were:
+* Adjusted p-value < 0.05
+* |log₂ Fold Change| > 1
 
-- ENSG00000292348
-- ENSG00000179094
+A total of **2 significant DEGs** were identified:
 
-## Functional Enrichment
+* `ENSG00000292348`
+* `ENSG00000179094`
 
-Functional enrichment analysis was performed using Gene Ontology (GO) and KEGG pathway analysis.
+### Differential Expression Figures
 
-The analysis identified pathways related to:
+* [Volcano Plot](Volcano_plot.png)
+* [MA Plot](MA_plot.png)
+* [PCA Plot](PCA_plot.png)
+* [Heatmap](Heatmap.png)
+* [DEG Summary](DEG_summary_plot.png)
 
-- Circadian rhythm
-- Circadian entrainment
-- Leukocyte transendothelial migration
-- Cell adhesion molecule interactions
+---
 
-## WGCNA
+## 🧩 Functional Enrichment
 
-Weighted Gene Co-expression Network Analysis (WGCNA) was performed to identify gene co-expression modules associated with the experimental condition.
+GO and KEGG enrichment analyses were performed to investigate the biological functions and pathways associated with the identified genes.
 
-### Key Parameters
+Important pathways included:
 
-- **Soft-thresholding power (β):** 11
-- **Minimum module size:** 30
-- **TOM type:** Unsigned
-- **Module merging cut height:** 0.25
-- **Genes used:** 26,821
-- **Samples:** 8
+* Circadian rhythm
+* Circadian entrainment
+* Leukocyte transendothelial migration
+* Cell adhesion molecule interactions
 
-## Hub Gene Identification
+### Enrichment Results
 
-Candidate hub genes were identified using the following criteria:
+* [GO Biological Process Results](GO_BP_results.csv)
+* [GO BP Dot Plot](GO_BP_dotplot.png)
+* [KEGG Dot Plot](Dot%20plot%20KEEG.png)
 
-- **|Module Membership (MM)| ≥ 0.90**
-- **Gene Significance (GS) ≥ 0.80**
+---
 
-Two modules were selected for further investigation:
-| Module | Total Genes | Hub Genes After Filtering |
-|--------|------------:|---------------------------:|
-| ME24 (darkgrey) | 407 | 11 |
-| ME59 (darkseagreen4) | 190 | 20 |
-| **Total** | **597** | **31** |
+## 🧠 WGCNA Analysis
 
-The ME59 filtered result contained **20 genes** satisfying the specified MM and GS criteria.
+Weighted Gene Co-expression Network Analysis (WGCNA) was performed using **26,821 genes** from 8 samples.
 
-A total of **31 candidate hub genes** were identified across the ME24 and ME59 modules after applying the filtering criteria of |MM| ≥ 0.90 and GS ≥ 0.80.
+### Parameters
 
-## PPI Network Results
+| Parameter               | Value    |
+| ----------------------- | -------- |
+| Soft-thresholding power | β = 11   |
+| Minimum module size     | 30       |
+| TOM type                | Unsigned |
+| Merge cut height        | 0.25     |
+| Samples                 | 8        |
+| Genes                   | 26,821   |
 
-Protein-protein interaction (PPI) analysis was performed using STRING to investigate potential interactions among the candidate hub genes.
+Two modules were selected for hub gene analysis:
 
-### ME24 PPI Network
+| Module    | Color         |   Genes | Hub Genes |
+| --------- | ------------- | ------: | --------: |
+| ME24      | Darkgrey      |     407 |        11 |
+| ME59      | Darkseagreen4 |     190 |        20 |
+| **Total** |               | **597** |    **31** |
 
-A total of **11 ME24 hub genes** were submitted to STRING, of which **8 proteins were successfully recognized**.
+Hub genes were selected using:
 
-The ME24 network contained:
+**|MM| ≥ 0.90 and GS ≥ 0.80**
 
-* **Recognized nodes:** 8
-* **Edges:** 1
-* **Average node degree:** 0.25
-* **Average local clustering coefficient:** 0.25
-* **Expected number of edges:** 0
-* **PPI enrichment p-value:** 0.183
+### Hub Gene Results
 
-The ME24 network showed a small number of interactions and was **not significantly enriched for protein-protein interactions** (PPI enrichment p = 0.183).
+* [ME24 Filtered Hub Genes](HubGenes_ME24_Filtered.csv)
+* [ME59 Filtered Hub Genes](HubGenes_ME59_Filtered.csv)
 
-### ME59 PPI Network
+---
 
-A total of **20 ME59 hub genes** were submitted to STRING, but only **3 proteins were successfully recognized**.
+## 🕸️ Protein-Protein Interaction Analysis
 
-The ME59 network contained:
+STRING was used to investigate potential interactions among the candidate hub proteins.
 
-* **Recognized nodes:** 3
-* **Edges:** 0
-* **Average node degree:** 0
-* **PPI enrichment p-value:** 1.0
+### ME24
 
-No protein-protein interactions were detected among the **3 proteins recognized by STRING**. Therefore, the absence of interactions should not be interpreted as evidence that all 20 ME59 hub genes lack protein-protein interactions.
+**11 hub genes were submitted → 8 proteins recognized**
 
-### Overall PPI Interpretation
+* Nodes: **8**
+* Edges: **1**
+* Average node degree: **0.25**
+* PPI enrichment p-value: **0.183**
 
-The STRING analysis showed limited protein-protein interactions among the **STRING-recognized hub proteins**. The ME24 network contained one observed interaction, whereas the three recognized ME59 proteins showed no interactions. Neither network showed significant PPI enrichment.
+The ME24 network was not significantly enriched for protein-protein interactions.
 
-Because several hub gene identifiers were not recognized by STRING, the PPI results represent only the subset of candidate hub genes that could be mapped to proteins in STRING.
+### ME59
 
+**20 hub genes were submitted → 3 proteins recognized**
 
-## Tools and Software
+* Nodes: **3**
+* Edges: **0**
+* Average node degree: **0**
+* PPI enrichment p-value: **1.0**
 
-### Quality Control and Processing
+No interactions were detected among the three proteins recognized by STRING.
 
-- SRA Toolkit
-- FastQC
-- fastp
-- HISAT2
-- samtools
-- featureCounts
+> **Note:** The PPI results represent only the proteins successfully mapped by STRING. Therefore, the absence of interactions does not indicate that all candidate hub genes lack biological interactions.
 
-### Statistical and Network Analysis
+### STRING Results
 
-- R
-- RStudio
-- DESeq2
-- WGCNA
-- clusterProfiler
+* [ME24 PPI Network](string_hires_image%20ME24.png)
+* [ME59 PPI Network](string_hires_image%20ME59.png)
+* [ME24 Interactions](string_interactions%20ME24.tsv)
+* [ME59 Interactions](string_interactions_short%20ME59.tsv)
 
-### Functional and PPI Analysis
+---
 
-- Gene Ontology (GO)
-- KEGG
-- STRING
-- Cytoscape
+##  Key Findings
 
-## Project Structure
+1. Only **2 significant DEGs** were identified using stringent DESeq2 criteria.
+2. WGCNA identified two modules associated with the experimental condition.
+3. **31 candidate hub genes** were identified from ME24 and ME59.
+4. Functional enrichment highlighted pathways involving circadian regulation, immune-cell migration, and cell adhesion.
+5. STRING analysis showed **limited PPI connectivity** among the recognized hub proteins.
+6. Several hub gene identifiers could not be mapped by STRING, representing an important limitation of the PPI analysis.
+
+---
+
+##  Limitations
+
+* The study included only **8 samples**, which limits statistical power.
+* Only two genes reached the predefined DESeq2 significance thresholds.
+* Not all hub gene identifiers were successfully recognized by STRING.
+* The PPI analysis therefore represents only a subset of the candidate hub genes.
+* Experimental validation would be required to confirm the biological relevance of the identified hub genes.
+
+---
+
+##  Tools & Software
+
+### RNA-seq Processing
+
+* SRA Toolkit
+* FastQC
+* fastp
+* HISAT2
+* samtools
+* featureCounts
+
+### Statistical Analysis
+
+* R
+* RStudio
+* DESeq2
+* WGCNA
+
+### Functional Analysis
+
+* clusterProfiler
+* Gene Ontology
+* KEGG
+
+### Network Analysis
+
+* STRING
+* Cytoscape
+
+---
+
+##  Repository Structure
 
 ```text
 Human-Airway-RNAseq-Hub-Gene-Analysis/
 │
 ├── README.md
-│
 ├── scripts/
-│
 ├── results/
-│
 ├── figures/
-│
 └── report/
+```
+
+---
+
+## 👩‍🔬 Author
+
+**Zainab Tahir**
+BS Bioinformatics
+Government College University Faisalabad (GCUF)
+
+---
+
+## 📚 Project Status
+
+**Analysis completed:** RNA-seq → DESeq2 → Enrichment → WGCNA → Hub Gene Identification → STRING/PPI
+
+**Status:** Completed
