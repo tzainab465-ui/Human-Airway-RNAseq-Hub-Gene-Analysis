@@ -104,11 +104,11 @@ A total of **2 significant DEGs** were identified:
 
 ### Differential Expression Figures
 
-* [Volcano Plot](Volcano_plot.png)
-* [MA Plot](MA_plot.png)
-* [PCA Plot](PCA_plot.png)
-* [Heatmap](Heatmap.png)
-* [DEG Summary](DEG_summary_plot.png)
+* [Volcano Plot](figures/01_DESeq2/Volcano_plot.png)
+* [MA Plot](figures/01_DESeq2/MA_plot.png)
+* [PCA Plot](figures/01_DESeq2/PCA_plot.png)
+* [Heatmap](figures/01_DESeq2/Heatmap.png)
+* [DEG Summary](figures/01_DESeq2/DEG_summary_plot.png)
 
 ---
 
@@ -125,9 +125,9 @@ Important pathways included:
 
 ### Enrichment Results
 
-* [GO Biological Process Results](GO_BP_results.csv)
-* [GO BP Dot Plot](GO_BP_dotplot.png)
-* [KEGG Dot Plot](Dot%20plot%20KEEG.png)
+* [GO Biological Process Results](results/02_Enrichment/GO_BP_results.csv)
+* [GO BP Dot Plot](figures/02_Enrichment/GO_BP_dotplot.png)
+* [KEGG Dot Plot](figures/02_Enrichment/KEGG_dotplot.png)
 
 ---
 
@@ -160,8 +160,8 @@ Hub genes were selected using:
 
 ### Hub Gene Results
 
-* [ME24 Filtered Hub Genes](HubGenes_ME24_Filtered.csv)
-* [ME59 Filtered Hub Genes](HubGenes_ME59_Filtered.csv)
+* [ME24 Filtered Hub Genes](results/03_WGCNA/HubGenes_ME24_Filtered.csv)
+* [ME59 Filtered Hub Genes](results/03_WGCNA/HubGenes_ME59_Filtered.csv)
 
 ---
 
@@ -195,10 +195,10 @@ No interactions were detected among the three proteins recognized by STRING.
 
 ### STRING Results
 
-* [ME24 PPI Network](string_hires_image%20ME24.png)
-* [ME59 PPI Network](string_hires_image%20ME59.png)
-* [ME24 Interactions](string_interactions%20ME24.tsv)
-* [ME59 Interactions](string_interactions_short%20ME59.tsv)
+* [ME24 PPI Network](figures/04_STRING/STRING_ME24_PPI.png)
+* [ME59 PPI Network](figures/04_STRING/STRING_ME59_PPI.png)
+* [ME24 Interactions](results/04_STRING/STRING_ME24.tsv)
+* [ME59 Interactions](results/04_STRING/STRING_ME59.tsv)
 
 ---
 
@@ -254,17 +254,33 @@ No interactions were detected among the three proteins recognized by STRING.
 
 ---
 
+
 ##  Repository Structure
 
 ```text
 Human-Airway-RNAseq-Hub-Gene-Analysis/
 │
 ├── README.md
+│
 ├── scripts/
+│   ├── 01_RNAseq_pipeline.sh
+│   ├── 02_DESeq2_GO_KEGG_analysis.R
+│   └── 03_WGCNA_analysis.R
+│
 ├── results/
+│   ├── 01_DESeq2/
+│   ├── 02_Enrichment/
+│   ├── 03_WGCNA/
+│   └── 04_STRING/
+│
 ├── figures/
+│   ├── 01_DESeq2/
+│   ├── 02_Enrichment/
+│   ├── 03_WGCNA/
+│   └── 04_STRING/
+│
+├── data/
 └── report/
-```
 
 ---
 
@@ -280,4 +296,4 @@ Government College University Faisalabad (GCUF)
 
 **Analysis completed:** RNA-seq → DESeq2 → Enrichment → WGCNA → Hub Gene Identification → STRING/PPI
 
-**Status:** Completed
+**Status:** Complete 
